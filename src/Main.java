@@ -96,7 +96,7 @@ public class Main {
 
         for (Student student : sortedStudents) {
             System.out.println("\nName : " + student.getName() + "\t\t\t" + "Student ID : " + student.getStudentID());
-            System.out.println("\t" + "English : " + student.getEnglish() + ", Math : " + student.getMath() + ", Science : " + student.getScience() + ", Filipino : " + student.getFilipino());
+            System.out.println("\t" + "English : " + student.getEnglish() + ", Math : " + student.getMath() + ", Science : " + student.getScience() + ", Filipino : " + student.getFilipino() + ", Mapeh : " + student.getMapeh());
             System.out.println("\tAverage : " + student.getAverage() + "\t" + student.getStudentPassed());
             System.out.println("----------------------------------------------------------------");
         }
@@ -106,7 +106,7 @@ public class Main {
     public static void displayStudents(ArrayList<Student> students) {
         for (Student student : students) {
             System.out.println("\nName : " + student.getName() + "\t\t\t" + "Student ID : " + student.getStudentID());
-            System.out.println("\t" + "English : " + student.getEnglish() + ", Math : " + student.getMath() + ", Science : " + student.getScience() + ", Filipino : " + student.getFilipino());
+            System.out.println("\t" + "English : " + student.getEnglish() + ", Math : " + student.getMath() + ", Science : " + student.getScience() + ", Filipino : " + student.getFilipino() + ", Mapeh : " + student.getMapeh());
             System.out.println("\tAverage : " + student.getAverage() + "\t" + student.getStudentPassed());
             System.out.println("----------------------------------------------------------------");
         }
@@ -115,7 +115,7 @@ public class Main {
     public static void addStudent() {
         Student newstudent = new Student();
         String Name, StudentID;
-        int English, Math, Science, Filipino;
+        int English, Math, Science, Filipino, Mapeh;
         boolean studentexist;
         scan.nextLine();
         do {
@@ -150,11 +150,14 @@ public class Main {
         Science = scan.nextInt();
         System.out.print("Filipino : ");
         Filipino = scan.nextInt();
+        System.out.print("Mapeh : ");
+        Mapeh = scan.nextInt();
 
         newstudent.setEnglish(English);
         newstudent.setMath(Math);
         newstudent.setScience(Science);
         newstudent.setFilipino(Filipino);
+        newstudent.setMapeh(Mapeh);
 
         newstudent.setAverage();
 
@@ -176,12 +179,12 @@ public class Main {
 
 class Student {
     private String Name = "No Name", StudentID;
-    private int English = 0, Math = 0, Science = 0, Filipino = 0, Average = 0;
+    private int English = 0, Math = 0, Science = 0, Filipino = 0, Mapeh = 0, Average = 0;
 
     public Student() { }
 
     public void setAverage() {
-        Average = (English + Math + Science + Filipino) / 4;
+        Average = (English + Math + Science + Filipino + Mapeh) / 5;
 
     }
 
@@ -247,4 +250,8 @@ class Student {
     public int getFilipino() {
         return Filipino;
     }
+
+    public void setMapeh(int Mapeh) { this.Mapeh = Mapeh; }
+
+    public int getMapeh() { return Mapeh; }
 }
